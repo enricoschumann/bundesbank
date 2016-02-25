@@ -1,8 +1,8 @@
 Package: bundesbank
 Type: Package
 Title: Download Data from Bundesbank
-Version: 0.1-5
-Date: 2013-04-24
+Version: 0.1-6
+Date: 2016-02-25
 Author: Enrico Schumann
 Maintainer: Enrico Schumann <es@enricoschumann.net>
 Description: The package contains only one function, which allows 
