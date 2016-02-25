@@ -1,0 +1,27 @@
+v0.1-5   (2013-04-24)
+
+  o updated maintainer email address
+
+v0.1-4   (2012-05-29)
+
+  o getSeries adapted to new Bundesbank website. The returned 
+    series now has an attribute 'info', which gives 
+    information provided by the Bundesbank (eg, the currency).
+    
+v0.1-3   (2012-02-05)
+
+  o added some checks for 'start' and 'end': character 
+    vectors of format 'YYYY-MM-DD' are now translated
+    into the required 'MM.YYYY' format (with a warning)
+    
+v0.1-2   (2012-02-02)
+
+  o minor changes in code ('cat' replaced by 'message')
+
+v0.1-1   (2011-10-23)
+
+  o NAMESPACE added
+
+v0.1-0   (2011-06-15)
+
+  o first version

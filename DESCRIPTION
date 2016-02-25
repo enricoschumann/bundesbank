@@ -1,0 +1,13 @@
+Package: bundesbank
+Type: Package
+Title: Download Data from Bundesbank
+Version: 0.1-5
+Date: 2013-04-24
+Author: Enrico Schumann
+Maintainer: Enrico Schumann <es@enricoschumann.net>
+Description: The package contains only one function, which allows 
+ to download data from the online database of the Bundesbank, the 
+ German central bank. See the overview at the bundesbank website. 
+License: GPL-3
+URL: http://enricoschumann.net/R/packages/bundesbank/index.htm
+Suggests: zoo
