@@ -1,11 +1,17 @@
+2019-01-01  Enrico Schumann  <es@enricoschumann.net>
+
+        * DESCRIPTION (Version): 0.1-7
+
+        * NAMESPACE: import utils::read.csv
+
 2016-02-25  Enrico Schumann  <es@enricoschumann.net>
 
         * DESCRIPTION (Version): 0.1-6
 
-	* small fixes in docs; clean up of code files (removed comments)
+        * small fixes in docs; clean up of code files (removed comments)
 
 2013-04-24  Enrico Schumann  <es@enricoschumann.net>
 
-	* DESCRIPTION (Package): changed maintainer email address, added
-	keywords
-	(Version): 0.1-5
+        * DESCRIPTION (Package): changed maintainer email address, added
+        keywords
+        (Version): 0.1-5

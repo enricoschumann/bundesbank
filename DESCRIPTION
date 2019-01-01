@@ -1,10 +1,13 @@
 Package: bundesbank
 Type: Package
 Title: Download Data from Bundesbank
-Version: 0.1-6
-Date: 2016-02-25
-Author: Enrico Schumann
+Version: 0.1-7
+Date: 2019-01-01
 Maintainer: Enrico Schumann <es@enricoschumann.net>
+Authors@R: person(given = "Enrico", family = "Schumann", 
+                  role  = c("aut", "cre"),
+                  email = "es@enricoschumann.net",
+		  comment = c(ORCID = "0000-0001-7601-6576"))
 Description: The package contains only one function, which allows 
  to download data from the online database of the Bundesbank, the 
  German central bank. See the overview at the bundesbank website. 
