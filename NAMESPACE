@@ -1,3 +1,4 @@
 export(getSeries)
 
-importFrom("utils", "read.csv")
+importFrom("utils",
+           "read.csv", "read.table")

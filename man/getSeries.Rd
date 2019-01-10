@@ -59,5 +59,9 @@ plot(eonia)
 
 ## check comments
 writeLines(strwrap(paste("- ", attr(res, "info")), width = 60, exdent = 2))
+
+## realtime dataset (Gross domestic product)
+getSeries("BBKRT.A.DE.N.A.AG1.CA010.V.A")
+
 }
 }

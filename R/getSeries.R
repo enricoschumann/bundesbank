@@ -1,6 +1,46 @@
 getSeries <- function(series, start = NULL,
                       end = format(Sys.Date(), "%Y-%m")) {
-    on.exit(return(NULL))
+    on.exit(return(invisible(NULL)))
+    if (grepl("^BBKRT", series)) {
+        ## REAL TIME
+        site <- paste0("https://www.bundesbank.de/statistic-rmi/",
+                      "StatisticDownload?tsId=",
+                      series,
+                      "&rtd_csvFormat=en",
+                      "&rtd_fileFormat=csv",
+                      "&mode=rtd")
+        con <- url(site)
+        message("Downloading data from Bundesbank ... ")
+        txt <- try(readLines(con), silent = TRUE)
+        em <- geterrmessage()
+        close(con)
+        if (inherits(txt, "try-error")) {
+            message("Failed.")
+            message("Error message: ", em)
+            return(invisible(NULL))
+        } else
+            message("Done.")
+
+        txt.head <- txt[1:5]
+        txt.csv <- txt[-c(1:5)]
+        tb <- read.table(text = txt.csv,
+                         header = FALSE,
+                         sep = ",",
+                         stringsAsFactors = FALSE)
+        row.names(tb) <- tb[[1]]
+        tb <- tb[, -1]
+
+        h.split <- strsplit(txt.head, " *, *")
+        colnames(tb)                <- h.split[[1]][-1L]
+        attr(tb, "a1")      <- as.Date(h.split[[1]][-1L])
+        attr(tb, "unit")            <- h.split[[2]][-1L]
+        attr(tb, "unit multiplier") <- h.split[[3]][-1L]
+        attr(tb, "Baseyear")        <- h.split[[4]][-1L]
+        attr(tb, "Record meth")     <- h.split[[5]][-1L]
+        on.exit()
+        return(tb)
+    }
+
     if (!is.null(start)) {
         if (nchar(start) != 7L) {
             warning("'start' not in format YYYY-MM")
