@@ -1,4 +1,4 @@
 export(getSeries)
 
 importFrom("utils",
-           "read.csv", "read.table")
+           "read.csv", "read.table", "download.file")

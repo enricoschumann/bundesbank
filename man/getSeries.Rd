@@ -7,7 +7,8 @@
   Download time series from the website of the Bundesbank.
 }
 \usage{
-getSeries(series, start = NULL, end = format(Sys.Date(), "\%Y-\%m"))
+getSeries(series, start = NULL, end = format(Sys.Date(), "\%Y-\%m"),
+          return.class = NULL, verbose = TRUE, dest.dir = NULL)
 }
 \arguments{
   \item{series}{The series name as given by the Bundesbank (e.g.
@@ -18,11 +19,32 @@ getSeries(series, start = NULL, end = format(Sys.Date(), "\%Y-\%m"))
   \item{end}{character in format
     \sQuote{\acronym{YYYY}.\acronym{MM}}. If omitted, the function
     downloads data up to the most recent available date.}
+
+  \item{return.class}{character or
+    \code{NULL}. Currently supported are \code{"zoo"} and
+    \code{"data.frame"}. If \code{NULL} (the default), a
+    \code{\link{list}} is returned for time series, and a
+    \code{\link{data.frame}} for real-time data.}
+  
+  \item{verbose}{logical}
+
+  \item{dest.dir}{\code{NULL} or
+  \code{\link{character}}. If character, it must be the
+  path to an existing directory. See Details.}
+
 }
 \details{
 
-  The data can be downloaded in CSV-format from the Bundesbank's website
-  \url{http://www.bundesbank.de} .
+  The data can be downloaded in CSV-format from the
+  Bundesbank's website \url{http://www.bundesbank.de} .
+
+  If \code{dest.dir} is provided, the downloaded
+  dataset gets a date prefix (today in format
+  \code{YYYYMMDD}) and is stored in directory
+  \code{dest.dir}. Before any download is attempted,
+  the function checks whether a file with today's
+  prefix exist in \code{dest.dir}; if yes, the file
+  used.
 
 }
 \value{

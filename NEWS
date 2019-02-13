@@ -2,6 +2,11 @@ v0.1-8   (????-??-??; not yet released)
 
   o support realtime data sets
 
+  o new arguments 'return.class' (with support for
+    list, "zoo" and "data.frame"), 'verbose', and
+    'dest.dir' (which allows caching of downloaded data
+    sets)
+  
 v0.1-6   (2016-02-25)
 
   o there is now a public Git repository at
