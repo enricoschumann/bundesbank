@@ -1,13 +1,13 @@
 2019-02-13  Enrico Schumann  <es@enricoschumann.net>
 
-	* R/getSeries.R (getSeries): new arguments
-	'return.class', 'verbose' and 'dest.dir'
-	(getSeries): 'start' and 'end' may now be years
+        * R/getSeries.R (getSeries): new arguments
+        'return.class', 'verbose' and 'dest.dir'
+        (getSeries): 'start' and 'end' may now be years
 
 2019-01-10  Enrico Schumann  <es@enricoschumann.net>
 
-	* R/getSeries.R (getSeries): support realtime
-	data sets
+        * R/getSeries.R (getSeries): support realtime
+        data sets
 
 2019-01-01  Enrico Schumann  <es@enricoschumann.net>
 
@@ -20,10 +20,10 @@
         * DESCRIPTION (Version): 0.1-6
 
         * small fixes in docs; clean up of code
-	files (removed comments)
+        files (removed comments)
 
 2013-04-24  Enrico Schumann  <es@enricoschumann.net>
 
         * DESCRIPTION (Package): changed maintainer
-	email address, added keywords
+        email address, added keywords
         (Version): 0.1-5

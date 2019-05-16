@@ -2,15 +2,24 @@ Package: bundesbank
 Type: Package
 Title: Download Data from Bundesbank
 Version: 0.1-8
-Date: 2019-04-14
+Date: 2019-05-16
 Maintainer: Enrico Schumann <es@enricoschumann.net>
 Authors@R: person(given = "Enrico", family = "Schumann",
                   role  = c("aut", "cre"),
                   email = "es@enricoschumann.net",
                   comment = c(ORCID = "0000-0001-7601-6576"))
-Description: The package contains only one function, which allows
- to download data from the online database of the Bundesbank, the
- German central bank. See the overview at the bundesbank website.
+Description: Download data from the time-series
+  databases of the Bundesbank, the German central
+  bank. See the overview at the Bundesbank website
+  (<https://www.bundesbank.de/en/statistics/time-series-databases>)
+  for available series. The package provides only a
+  single function, 'getSeries', which supports both
+  traditional and real-time datasets; it will also
+  download meta data if available.  Downloaded data
+  can automatically be arranged in various formats,
+  such as data frames or 'zoo' series. The data
+  may optionally be cached, so as to avoid repeated
+  downloads of the same series.
 License: GPL-3
 URL: http://enricoschumann.net/R/packages/bundesbank/index.htm,
      https://github.com/enricoschumann/bundesbank

@@ -1,12 +1,14 @@
-v0.1-8   (????-??-??; not yet released)
+v0.1-8   (2019-05-16)
 
-  o support realtime data sets
+  o support real-time data sets
 
-  o new arguments 'return.class' (with support for
-    list, "zoo" and "data.frame"), 'verbose', and
-    'dest.dir' (which allows caching of downloaded data
-    sets)
-  
+  o getSeries gains new arguments 'return.class' (with
+    support for "list", "zoo" and "data.frame"),
+    'verbose', and 'dest.dir' (which allows caching of
+    downloaded data sets). The default for
+    'return.class' is "data.frame"; for the behaviour
+    of previous versions, use NULL or "list".
+
 v0.1-6   (2016-02-25)
 
   o there is now a public Git repository at
@@ -20,16 +22,16 @@ v0.1-5   (2013-04-24)
 
 v0.1-4   (2012-05-29)
 
-  o getSeries adapted to new Bundesbank website. The returned 
-    series now has an attribute 'info', which gives 
+  o getSeries adapted to new Bundesbank website. The returned
+    series now has an attribute 'info', which gives
     information provided by the Bundesbank (eg, the currency).
-    
+
 v0.1-3   (2012-02-05)
 
-  o added some checks for 'start' and 'end': character 
+  o added some checks for 'start' and 'end': character
     vectors of format 'YYYY-MM-DD' are now translated
     into the required 'MM.YYYY' format (with a warning)
-    
+
 v0.1-2   (2012-02-02)
 
   o minor changes in code ('cat' replaced by 'message')
