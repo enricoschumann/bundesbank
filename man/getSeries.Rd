@@ -88,7 +88,7 @@ getSeries(series,
 }
 
 \examples{
-\dontrun{
+\donttest{
 ## (Internet connection required)
   
 series <- "BBK01.ST0304" ## Eonia

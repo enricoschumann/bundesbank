@@ -1,4 +1,13 @@
+2019-05-16  Enrico Schumann  <es@enricoschumann.net>
+
+        * DESCRIPTION (Version): 0.1-9
+
+        * man/getSeries.Rd: use \donttest instead of
+        \dontrun in examples
+
 2019-02-13  Enrico Schumann  <es@enricoschumann.net>
+
+        * DESCRIPTION (Version): 0.1-8
 
         * R/getSeries.R (getSeries): new arguments
         'return.class', 'verbose' and 'dest.dir'

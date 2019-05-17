@@ -1,7 +1,7 @@
 Package: bundesbank
 Type: Package
 Title: Download Data from Bundesbank
-Version: 0.1-8
+Version: 0.1-9
 Date: 2019-05-16
 Maintainer: Enrico Schumann <es@enricoschumann.net>
 Authors@R: person(given = "Enrico", family = "Schumann",
@@ -13,9 +13,9 @@ Description: Download data from the time-series
   bank. See the overview at the Bundesbank website
   (<https://www.bundesbank.de/en/statistics/time-series-databases>)
   for available series. The package provides only a
-  single function, 'getSeries', which supports both
+  single function, getSeries(), which supports both
   traditional and real-time datasets; it will also
-  download meta data if available.  Downloaded data
+  download meta data if available. Downloaded data
   can automatically be arranged in various formats,
   such as data frames or 'zoo' series. The data
   may optionally be cached, so as to avoid repeated
