@@ -1,8 +1,8 @@
 Package: bundesbank
 Type: Package
 Title: Download Data from Bundesbank
-Version: 0.1-9
-Date: 2019-05-16
+Version: 0.1-10
+Date: 2023-10-03
 Maintainer: Enrico Schumann <es@enricoschumann.net>
 Authors@R: person(given = "Enrico", family = "Schumann",
                   role  = c("aut", "cre"),

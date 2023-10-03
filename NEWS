@@ -1,3 +1,19 @@
+v0.1-10   (2023-10-03)
+
+  o getSeries: protect Examples against failed downloads.
+    (The function has been returning NULL in such cases for
+    many years, which is now also documented.)
+
+    The Bundesbank apparently implemented measures against
+    non-interactive use at the end of September 2023, which
+    require a browser with cookies and javascript enabled.
+    Should this change to the Bundesbank's website become
+    permanent, the current download mechanism will be broken.
+
+v0.1-9   (2019-05-16)
+
+  o small changes in docs
+
 v0.1-8   (2019-05-16)
 
   o support real-time data sets

@@ -1,3 +1,17 @@
+2023-10-03  Enrico Schumann  <es@enricoschumann.net>
+
+        * DESCRIPTION (Version): 0.1-10
+
+        * man/getSeries.Rd: protect Examples against failed
+        downloads.  ('getSeries' will return NULL in such a
+        case, which is now also documented.)
+        The Bundesbank apparently implemented measures against
+        non-interactive use at the end of September 2023,
+        which require a browser with cookies and javascript
+        enabled.  If this change to the Bundesbank's website
+        is permanent, the current download mechanism will be
+        broken.
+
 2019-05-16  Enrico Schumann  <es@enricoschumann.net>
 
         * DESCRIPTION (Version): 0.1-9
