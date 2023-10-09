@@ -50,7 +50,8 @@ getSeries(series,
 \details{
 
   The data can be downloaded in CSV-format from the
-  Bundesbank's website \url{http://www.bundesbank.de} .
+  Bundesbank's website
+  \url{https://www.bundesbank.de/en/statistics/time-series-databases} .
 
   If \code{dest.dir} is provided, the downloaded
   dataset gets a date prefix (today in format
@@ -82,7 +83,7 @@ getSeries(series,
 
   If a download files, the function will print the error
   message, but evaluate to \code{NULL} (invisibly).
-  
+
 }
 \author{
 
