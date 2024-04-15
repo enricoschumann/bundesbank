@@ -120,12 +120,20 @@ getSeries <- function(series,
         } else
             doc <- NULL
 
-        doc0 <- dats[2:4, ]
-        doc0 <- paste(doc0[, 1L], doc0[, 2L], sep = ": ")
-        doc0 <- c(dats[1L, 2L], doc0)
-        doc <- c(doc0, doc)
-        dats <- dats[-(1:4), ]
-
+        data.start <- grep("[0-9]{4}-[0-9][0-9]-[0-9][0-9]",
+                           dats[, 1])
+        if (!length(data.start))
+            data.start <- 5
+        else
+            data.start <- min(data.start)
+        if (data.start >= 3) {
+            i <- seq(from = 2, to = data.start - 1)
+            doc0 <- dats[i, ]
+            doc0 <- paste(doc0[, 1L], doc0[, 2L], sep = ": ")
+            doc0 <- c(dats[1L, 2L], doc0)
+            doc <- c(doc0, doc)
+            dats <- dats[-i, ]
+        }
 
         dates <- as.Date(dats[, 1L])
         values <- dats[, 2L]

@@ -1,6 +1,11 @@
+2024-04-15  Enrico Schumann  <es@enricoschumann.net>
+
+        * R/getSeries.R (getSeries): check number of rows
+        in header
+
 2023-10-09  Enrico Schumann  <es@enricoschumann.net>
 
-	* DESCRIPTION (Version): 0.1-11
+        * DESCRIPTION (Version): 0.1-11
 
 2023-10-03  Enrico Schumann  <es@enricoschumann.net>
 
