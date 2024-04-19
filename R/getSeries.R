@@ -3,10 +3,19 @@ getSeries <- function(series,
                       end = format(Sys.Date(), "%Y-%m"),
                       return.class = "data.frame",
                       verbose = TRUE,
-                      dest.dir = NULL) {
+                      dest.dir = NULL,
+                      column1.only = TRUE) {
 
     on.exit(return(invisible(NULL)))
 
+    if (return.class == "zoo" &&
+        column1.only == FALSE) {
+        column1.only <- FALSE
+        message(sQuote("column1.only"),
+                " set to FALSE because ",
+                sQuote("return.class"), " is ",
+                dQuote("zoo"))
+    }
     real.time <- grepl("^BBKRT", series)
     if (real.time) {
         site <- paste0("https://www.bundesbank.de/statistic-rmi/",
@@ -114,21 +123,23 @@ getSeries <- function(series,
                          as.is = TRUE)
 
         ## is last line a comment?
-        if (dats[NROW(dats), 1L] == "") {
-            doc <- dats[NROW(dats), 2L]
-            dats <- dats[-NROW(dats), ]
+        if (any(i <- dats[, 1L] == "")) {
+            i[1L] <- FALSE  ## never include the first line
+            doc <- dats[i, 2L]
+            dats <- dats[!i, ]
         } else
             doc <- NULL
 
-        data.start <- grep("[0-9]{4}-[0-9][0-9]-[0-9][0-9]",
-                           dats[, 1])
-        if (!length(data.start))
+        data.start <-
+            grep("[0-9]{4}-[0-9][0-9]-[0-9][0-9]", dats[, 1])
+        if (!length(data.start)) {
+            warning("could not determine timestamps")
             data.start <- 5
-        else
+        } else
             data.start <- min(data.start)
         if (data.start >= 3) {
             i <- seq(from = 2, to = data.start - 1)
-            doc0 <- dats[i, ]
+            doc0 <- dats[i, , drop = FALSE]
             doc0 <- paste(doc0[, 1L], doc0[, 2L], sep = ": ")
             doc0 <- c(dats[1L, 2L], doc0)
             doc <- c(doc0, doc)
@@ -136,13 +147,25 @@ getSeries <- function(series,
         }
 
         dates <- as.Date(dats[, 1L])
-        values <- dats[, 2L]
         NAs <- is.na(dates)
         dates <- dates[!NAs]
-        values <- values[!NAs]
-        missing <- values == "."
-        dates <- dates[!missing]
-        values <- as.numeric(values[!missing])
+
+        if (column1.only) {
+            values <- dats[, 2L]
+            values <- values[!NAs]
+            missing <- values == "."
+            dates <- dates[!missing]
+            values <- as.numeric(values[!missing])
+
+        } else {
+            values <- dats[, -1, drop = FALSE]
+            values <- values[!NAs, ]
+            missing <- values[, 1L] == "."
+            values[missing, 1L] <- NA
+            values[, 1L] <- as.numeric(values[, 1L])
+        }
+
+
 
         if (!is.null(return.class)) {
             if (return.class == "zoo")
@@ -151,8 +174,10 @@ getSeries <- function(series,
                 else
                     stop("package ", sQuote("zoo"), " not available")
 
-            else if (return.class == "data.frame")
+            else if (return.class == "data.frame") {
                 result <- data.frame(dates = dates, values = values)
+                row.names(result) <- make.unique(as.character(dates))
+            }
 
             else if (return.class == "list")
                 result <- list(dates = dates, values = values)

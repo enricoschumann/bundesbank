@@ -1,9 +1,13 @@
-v0.1-12   (2024-04-15; not yet released)
+v0.1-12   (2024-04-19)
+
+  o 'getSeries' gets a new argument 'column1.only',
+    with default TRUE (which matches the current
+    behaviour).  If FALSE, the function keeps
+    additional columns, which exist in some datasets
+    and typically contain comments and notes.
 
   o check for additional headers in data-series files
     (following a report by Benedict Acton-Bond)
-
-  o ....
 
 v0.1-11   (2023-10-09)
 

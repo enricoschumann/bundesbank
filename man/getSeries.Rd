@@ -13,13 +13,14 @@ getSeries(series,
           start = NULL,
           end = format(Sys.Date(), "\%Y-\%m"),
           return.class = "data.frame",
-          verbose = TRUE, dest.dir = NULL)
+          verbose = TRUE, dest.dir = NULL,
+          column1.only = TRUE)
 }
 \arguments{
 
-  \item{series}{The series name as given by the
-    Bundesbank (e.g. \sQuote{\acronym{BBK01.ST0316}}
-    for 3-Month \acronym{EURIBOR}).}
+  \item{series}{The series name as given by the Bundesbank
+    (e.g. \sQuote{\acronym{BBK01.ST0316}} for 3-Month
+    \acronym{EURIBOR}).}
 
   \item{start}{character in format
     \sQuote{\acronym{YYYY}-\acronym{MM}} or
@@ -33,18 +34,23 @@ getSeries(series,
     downloads data up to the most recent available
     date. Currently ignored for real-time datasets.}
 
-  \item{return.class}{character or
-    \code{NULL}. Currently supported are \code{"zoo"}
-    and \code{"data.frame"}. If \code{NULL} or
-    \code{"list"}, a \code{\link{list}} is returned for
-    time-series. Real-time data are always returned as a
-    \code{\link{data.frame}}.}
+  \item{return.class}{character or \code{NULL}. Currently
+    supported are \code{"zoo"} and \code{"data.frame"}. If
+    \code{NULL} or \code{"list"}, a \code{\link{list}} is
+    returned for time-series. Real-time data are always
+    returned as a \code{\link{data.frame}}.}
 
   \item{verbose}{logical}
 
-  \item{dest.dir}{\code{NULL} or
-  \code{\link{character}}. If character, it must be the
-  path to an existing directory. See Details.}
+  \item{dest.dir}{\code{NULL} or \code{\link{character}}. If
+    character, it must be the path to an existing
+    directory. See Details.}
+
+  \item{column1.only}{\code{logical}, and default is
+    \code{TRUE}, which is required for \code{return.class}
+    \code{zoo}.  If \code{FALSE}, additional columns are
+    kept; such columns typically contain comments and
+    notes.}
 
 }
 \details{

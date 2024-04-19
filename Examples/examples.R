@@ -1,8 +1,19 @@
 ## EXAMPLES
 
 library("bundesbank")
+library("zoo")
 
+
+## install.packages('plotseries',
+##                  repos = c('http://enricoschumann.net/R', getOption('repos')))
+library("plotseries")
+
+
+## where to store raw data
 dl.dir <- "~/Downloads/bundesbank"
+
+
+
 
 series <- "BBK01.ST0304" ## Eonia
 
@@ -71,8 +82,6 @@ res <- getSeries(series, start = "2012-01", end = "2012-05",
 ## 2012-05-31 2012-05-31  0.329
 
 
-library("zoo")
-library("plotseries")
 Eonia <- zoo(res$values, res$dates)
 plotseries(Eonia)
 

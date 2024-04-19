@@ -1,3 +1,13 @@
+2024-04-19  Enrico Schumann  <es@enricoschumann.net>
+
+	* DESCRIPTION (Version): 0.1-12
+
+	* R/getSeries.R (getSeries): add new argument
+	'column1.only', with default TRUE (which matches the
+	current behaviour).  If FALSE, the function keeps
+	additional columns, which exist in some dataset and
+	typically contain comments and notes.
+
 2024-04-15  Enrico Schumann  <es@enricoschumann.net>
 
         * R/getSeries.R (getSeries): check number of rows
