@@ -141,3 +141,40 @@ writeLines(strwrap(paste("- ", attr(gold, "info")),
 ##   April 1974 - December 1980: Samuel Montagu & Co. Ltd.;
 ##   January 1981 - December 1998: FT; January 1999 - present:
 ##   The London Bullion Market Association.
+
+
+
+
+
+
+
+
+y <- c("BBSIS.M.I.ZST.ZI.EUR.S1311.B.A604.R01XX.R.A.A._Z._Z.A",
+       "BBSIS.M.I.ZST.ZI.EUR.S1311.B.A604.R02XX.R.A.A._Z._Z.A",
+       "BBSIS.M.I.ZST.ZI.EUR.S1311.B.A604.R03XX.R.A.A._Z._Z.A",
+       "BBSIS.M.I.ZST.ZI.EUR.S1311.B.A604.R04XX.R.A.A._Z._Z.A",
+       "BBSIS.M.I.ZST.ZI.EUR.S1311.B.A604.R05XX.R.A.A._Z._Z.A",
+       "BBSIS.M.I.ZST.ZI.EUR.S1311.B.A604.R06XX.R.A.A._Z._Z.A",
+       "BBSIS.M.I.ZST.ZI.EUR.S1311.B.A604.R07XX.R.A.A._Z._Z.A",
+       "BBSIS.M.I.ZST.ZI.EUR.S1311.B.A604.R08XX.R.A.A._Z._Z.A",
+       "BBSIS.M.I.ZST.ZI.EUR.S1311.B.A604.R09XX.R.A.A._Z._Z.A",
+       "BBSIS.M.I.ZST.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A")
+
+series <- NULL
+for (y1 in y) {
+    series1 <- getSeries(c(y1),
+                         return.class = "zoo",
+                         dest.dir = dl.dir)
+    series <- if (is.null(series))
+        series1 else merge(series, series1)
+}
+
+colnames(series) <- 1:10
+
+plotseries(window(series),
+           white.underlay = TRUE,
+           labels = colnames(series),
+           labels.col = TRUE,
+           returns.show = FALSE,
+           y.labels.at.remove = NA
+           )
