@@ -1,0 +1,16 @@
+.es_keywords
+.git
+.gitignore
+ChangeLog
+Examples/
+LICENSE
+R/dev.R
+README.org
+TODO
+TODO.org
+inst/other
+inst/unitTests
+manual
+various
+various_scripts
+vignettes/auto
